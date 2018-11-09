@@ -19,13 +19,13 @@ class Header extends Component {
                 <div className="menu-container">
                     <ul className="ulLink">
                             <li className="nav-link-li">
-                                <a className="navLink ">  Login </a>
+                                <NavLink to="/login" className="navLink ">  Login </NavLink>
                             </li>
                             <li className="nav-link-li" >
                                 <span>|</span>
                             </li>
                             <li className="nav-link-li" >
-                                <a className="navLink " >  Register </a>
+                                <NavLink to="/register" className="navLink " >  Register </NavLink>
                             </li>
                         </ul>
                 </div>

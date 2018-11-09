@@ -1,0 +1,19 @@
+
+ 
+.header-container {
+    background-color: #56CCF2;
+    display: flex;
+    line-height: 15px;
+    padding: 10px;
+}
+
+.logo-container{
+    background-color: red;
+    width: auto;
+    
+}.menu-container{
+    background-color: blue;
+    width: auto;
+
+
+}

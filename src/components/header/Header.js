@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
+import logo from '../../logo.svg';
+
 import './Header.css';
 
 class Header extends Component {
@@ -10,10 +13,21 @@ class Header extends Component {
         return ( 
              <div className="header-container">
                 <div className="logo-container">
-                    <p>Logo . . .</p>
+                    <img src={logo} className="App-logo" alt="logo" />
+                    <span>My Phone Book</span>
                 </div>
                 <div className="menu-container">
-                    <p>Menu . . . . . . . . . . .. .</p>
+                    <ul className="ulLink">
+                            <li className="nav-link-li">
+                                <a className="navLink ">  Login </a>
+                            </li>
+                            <li className="nav-link-li" >
+                                <span>|</span>
+                            </li>
+                            <li className="nav-link-li" >
+                                <a className="navLink " >  Register </a>
+                            </li>
+                        </ul>
                 </div>
              </div>
 

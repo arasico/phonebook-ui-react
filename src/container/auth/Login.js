@@ -16,9 +16,24 @@ class LoginComponent extends Component {
                     <div className="auth-header">
                         <h1>Login!</h1>
                         <h3>Please login in your Account.</h3>
+                        <hr />
                     </div>
-                    <div className="auth-form"></div>
-                    <div className="auth-footer"></div>
+                    <div className="auth-form">
+                        <form className="form">
+                             
+                                <label for="username">Username</label>
+                                <input type="text" name="username" />
+
+                                <label for="password">Password</label>
+                                <input type="password" maxLength="20" name="password" />
+                            
+                            <input type="submit" value="Submit" />
+                        </form>
+                    </div>
+                    <div className="auth-footer">
+                 
+ 
+                    </div>
               </div>
             </div>
          );

@@ -19,6 +19,7 @@
     flex-direction: row;
     align-items: center;
     padding-right: 30px;
+    background-color: red;
     
 }
 
@@ -31,6 +32,7 @@
 .menu-container{
     
     width: 60%;
+    background-color: blue;
 
 
 }
@@ -51,4 +53,11 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
     height: 6vmin;
+  }
+
+  .navLink {
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+      
   }

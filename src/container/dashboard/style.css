@@ -1,0 +1,71 @@
+
+.container{
+    margin: auto;
+    width: 100%; 
+    padding: 20px 0;
+    background-color: aquamarine;
+
+    
+}
+
+.list-container {
+    background-color: red;
+    width: 98%;
+    margin: auto;
+
+}
+
+.list-header {
+    background-color: yellow;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.search-container {
+    background-color: red; 
+    width: 50%; 
+    align-items: center;
+    text-align: left; 
+}
+
+.menu-container {
+    background-color: green; 
+    height: 50px;
+    width: 50%;         
+
+}
+
+input[type=text], input[type=password],  select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 0;
+    border-radius: 100px;
+    box-sizing: border-box; 
+    text-decoration: none;
+    outline: none;
+
+
+   
+}
+
+.search-box {
+    display: flex;
+    background-color: #fff;
+    width: 50%;
+    border-radius: 100px;
+    border: 1px solid #BDBDBD;
+}
+
+.search-input { 
+    width: 80%; 
+    
+
+}
+.search-button { 
+ width: 20%; 
+ align-items: center;
+ justify-content: center;
+}

@@ -22,7 +22,7 @@ class Header extends Component {
                                 <NavLink to="/login" className="navLink ">  Login </NavLink>
                             </li>
                             <li className="nav-link-li" >
-                                <span>|</span>
+                                <span style={{color:'#fff'}}>|</span>
                             </li>
                             <li className="nav-link-li" >
                                 <NavLink to="/register" className="navLink " >  Register </NavLink>

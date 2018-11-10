@@ -24,8 +24,14 @@ class ListingComponent extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="menubutton-container"></div>
+                        <div className="menubutton-container">
+                            <div className="button-box">
+                            <span>+</span> <p> Add New Contact</p>
+                            </div>
+                        </div>
+                        
                     </div>
+                    <hr className="hr-silver" />
                     <div className=""></div> 
                 </div>
             </div>

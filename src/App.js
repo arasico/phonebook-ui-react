@@ -6,6 +6,7 @@ import Header from './components/header/Header';
 import Login from './container/auth/Login';
 import Register from './container/auth/Register';
 import List from './container/dashboard/Listing';
+import Insert from './container/dashboard/Insert';
  
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
                   <Route exact path="/login" component={Login} />
                   <Route path="/register" component={Register} /> 
                   <Route path="/list" component={List} /> 
+                  <Route path="/insert" component={Insert} /> 
             </Switch>
                 
           </div>

@@ -1,4 +1,22 @@
 
+@media only screen and (max-width:1000px){
+    .search-box {
+        width: 100%!important;
+    }
+}
+
+@media only screen and (max-width:450px){
+    .search-container {
+        width: 100%!important;
+    }
+    .list-header{
+        flex-direction: column!important;
+    }
+    .menubutton-container {
+        width: 100%!important;
+    }
+}
+
 .container{
     margin: auto;
     width: 100%; 
@@ -29,7 +47,7 @@
     text-align: left; 
 }
 
-.menu-container {
+.menubutton-container {
     background-color: green; 
     height: 50px;
     width: 50%;         
@@ -65,7 +83,12 @@ input[type=text], input[type=password],  select {
 
 }
 .search-button { 
- width: 20%; 
- align-items: center;
- justify-content: center;
+    background-color: rebeccapurple;
+    width: 20%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    padding: 15px 0;
+    border-radius: 0 100px 100px 0;
 }

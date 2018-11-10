@@ -31,7 +31,7 @@ class LoginComponent extends Component {
                         </form>
                     </div>
                     <div className="auth-footer">
-                 
+                        <p>You don't have account,<span>Please sign up.</span></p> 
  
                     </div>
               </div>

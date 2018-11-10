@@ -1,4 +1,5 @@
 import React, { Component} from 'react';
+import { NavLink } from 'react-router-dom'
 import './style.css';
 
 
@@ -9,6 +10,9 @@ class LoginComponent extends Component {
         this.state = {  }
     }
     render() { 
+
+   
+
         return ( 
             <div className="container-fluid">
               
@@ -31,7 +35,7 @@ class LoginComponent extends Component {
                         </form>
                     </div>
                     <div className="auth-footer">
-                        <p>You don't have account,<span>Please sign up.</span></p> 
+                        <p>You don't have account,<span> <NavLink className="sub-navlink" to="/register" >Please sign up.</NavLink> </span></p> 
  
                     </div>
               </div>

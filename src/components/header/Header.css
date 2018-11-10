@@ -1,5 +1,10 @@
 
- 
+@media only screen and (max-width:700px) {
+    .menu-container{
+        display: none!important;
+    }
+}
+
 .header-container {
     background-color: #56CCF2;
     display: flex;
@@ -10,15 +15,22 @@
 }
 
 .logo-container{
-    background-color: red; 
     display: flex;
     flex-direction: row;
     align-items: center;
     padding-right: 30px;
     
-}.menu-container{
-    background-color: blue;
-    width: 80%;
+}
+
+.logo-container span {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.menu-container{
+    
+    width: 60%;
 
 
 }

@@ -60,7 +60,7 @@
 
 }
 
-input[type=text], input[type=password],  select {
+.search-input input[type=text] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -197,7 +197,7 @@ input[type=text], input[type=password],  select {
 
 
 
-button, input[type="submit"], input[type="reset"] {
+button, .search-button input[type="submit"] {
 	background: none;
 	color: inherit;
 	border: none;

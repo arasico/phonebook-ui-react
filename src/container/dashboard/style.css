@@ -244,3 +244,51 @@ button, .search-button input[type="submit"] {
     font-weight: 700;
 
 }
+
+.box-header p {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333333;
+
+}
+
+.container-form {
+    margin: auto;
+    width: 90%; 
+    background-color: #fff;
+    display: inline-flex;
+}
+
+.box-form{
+    display: inline-flex;
+    width: 45%;
+    padding: 10px;
+   
+
+}
+
+.form-insert { 
+    width: 100%;
+    text-align: left;
+}
+
+ input[type=text], input[type=password],  select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-decoration: none;
+   
+}
+
+.box-image {
+    background-color: #f2f2f2;
+    border-radius: 15px;
+    height: 370px;
+    width: 100%;
+    margin-top: 25px; 
+    
+}

@@ -40,7 +40,7 @@ class ListingComponent extends Component {
                             </div>
                         </div>
                         <div className="menubutton-container">
-                            <NavLink to="/login" >
+                            <NavLink to="/insert" >
                                 <div className="button-box">
                                     <div>
                                     <img src={IconAdd} className="Add-Icon" alt="Add New"/>    

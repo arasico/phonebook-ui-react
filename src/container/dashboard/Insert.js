@@ -11,7 +11,22 @@ class InsertComponent extends Component {
         return ( 
         
         <div>
-            <p>Insert Components . . .  . loading sooon!</p>
+          <div className="container">
+                <div className="container-inser">
+                    <div className="insert-header">
+                            <div className="box-header">
+                                <p>Add New Contact</p>
+                            </div>
+                            
+                            <div className="box-header flex-end">
+                                <button className="button-add">View Contact</button>
+                            </div>
+
+                            <hr className="hr-silver" />
+                    </div>
+             
+                </div>
+          </div>
         </div>
         
         );

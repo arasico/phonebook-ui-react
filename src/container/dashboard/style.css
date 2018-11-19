@@ -204,6 +204,12 @@ button, .search-button input[type="submit"] {
 	outline: inherit;
 }
 
+
+.btn-cancel input[type="submit"]{
+    background-color: #ccc;
+
+}
+
 .container-inser {
     margin: auto;
     width: 90%; 
@@ -285,4 +291,14 @@ button, .search-button input[type="submit"] {
     width: 100%;
     margin-top: 25px; 
     
+}
+.btn-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.btn-part {
+    height: 50px;
+    width: 50%;
+    margin: 0 5px;
 }

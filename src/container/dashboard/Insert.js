@@ -7,6 +7,12 @@ class InsertComponent extends Component {
         super(props);
         this.state = {  }
     }
+
+
+    _callSubmit(){
+        alert("Submited!");
+    }
+
     render() { 
         return ( 
         
@@ -43,6 +49,16 @@ class InsertComponent extends Component {
                                 <label for="address">Address</label>
                                 <input  type="text" name="address" />
 
+                                <div className="btn-container">
+                                    <div className="btn-part">
+                                        <input  type="submit" value="Back"    />
+                                    </div>
+                                    <div className="btn-part">
+                                        <input  type="submit" value="Add contact" onClick={this._callSubmit} className="blue-color" />
+                                    </div>
+                                </div>
+
+                               
                             </div>
                         </div>
                         <div className="box-form">

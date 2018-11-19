@@ -20,6 +20,11 @@
 }
 
 
+.blue-color{
+    background-color: #56CCF2;
+}
+
+
 
 
 .container-fluid{
@@ -112,7 +117,6 @@ input[type=text], input[type=password],  select {
 
 input[type=submit] {
     width: 100%;
-    background-color: #56CCF2;
     color: white;
     padding: 20px 20px;
     margin: 8px 0;

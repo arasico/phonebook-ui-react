@@ -284,12 +284,11 @@ button, .search-button input[type="submit"] {
     text-decoration: none;
 }
 
-.box-image {
-    background-color: #f2f2f2;
+.box-image { 
     border-radius: 15px;
     height: 370px;
     width: 100%;
-    margin-top: 25px; 
+    margin-top: 10px; 
     
 }
 .btn-container{
@@ -301,4 +300,27 @@ button, .search-button input[type="submit"] {
     height: 50px;
     width: 50%;
     margin: 0 5px;
+}
+
+.app {
+    width: 100%;
+    height: 100%; 
+    background-color: #f2f2f2;
+    border-radius: 15px;
+}
+
+.app p {
+    padding-top: 10px;
+    color: #ccc;
+}
+
+.app:hover {
+    background-color: #e4e4e4;
+}
+
+
+.attach-img{
+    widows: 200px;
+    height: 200px;
+    padding-top: 50px;
 }

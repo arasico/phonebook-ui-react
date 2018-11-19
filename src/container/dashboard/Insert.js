@@ -1,12 +1,78 @@
-import React,{ Component } from 'react';
+import React,{ Component } from 'react'; 
+
+import ReactDropzone from "react-dropzone"; 
+
+//
+//
 import './style.css';
+import Attach from '../../assets/icons/attachment.svg';
+
+
+
+
+const thumbsContainer = {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    marginTop: 16
+  };
+  
+  const thumb = {
+    display: 'inline-flex',
+    borderRadius: 2,
+    border: '1px solid #eaeaea',
+    marginBottom: 8,
+    marginRight: 8,
+    width: '100%',
+    height: '100%',
+    padding: 4,
+    boxSizing: 'border-box'
+  };
+  
+  const thumbInner = {
+    display: 'flex',
+    minWidth: 0,
+    width: '100%',
+    height: '100%',
+    overflow: 'hidden',
+    backgroundColor: '#FFFFFF'
+  }
+  
+  const img = {
+    display: 'block', 
+    height: '100%',
+    textAlign: 'center',
+    margin: 'auto',
+  };
+
 
 
 class InsertComponent extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = { 
+            files: [],
+         }
     }
+
+  
+    onDrop(files) {
+        this.setState({
+          files: files.map(file => ({
+            ...file,
+            preview: URL.createObjectURL(file)
+          }))
+        });
+      }
+    
+      componentWillUnmount() {
+        // Make sure to revoke the data uris to avoid memory leaks
+        const {files} = this.state;
+        for (let i = files.length; i >= 0; i--) {
+          const file = files[0];
+          URL.revokeObjectURL(file.preview);
+        }
+      }
 
 
     _callSubmit(){
@@ -14,6 +80,33 @@ class InsertComponent extends Component {
     }
 
     render() { 
+
+  
+
+
+          const {files} = this.state;
+
+          const thumbs = files.map((file, index) => (
+            <div key={index} style={thumb}>
+              <div style={thumbInner}>
+                <img
+                  src={file.preview}
+                  style={img}
+                />
+              </div>
+            </div>
+          ));
+
+          const alertImg =  (
+              <div>
+                        <img src={Attach}   alt="logo" />
+                       <p>Drag and Drop or click here for upload photo</p>
+
+                </div>
+          )
+
+          
+
         return ( 
         
         <div>
@@ -34,19 +127,19 @@ class InsertComponent extends Component {
                     <div className="container-form">
                         <div className="box-form">
                             <div className="form-insert">
-                                <label for="name">Name</label>
+                                <label htmlFor="name">Name</label>
                                 <input  type="text" name="name" />
 
-                                <label for="Email">Email</label>
+                                <label htmlFor="Email">Email</label>
                                 <input  type="text" name="email" />
 
-                                <label for="mobile">Mobile</label>
+                                <label htmlFor="mobile">Mobile</label>
                                 <input  type="text" name="mobile" />
 
-                                <label for="phone">Phone Number</label>
+                                <label htmlFor="phone">Phone Number</label>
                                 <input  type="text" name="phone" />
 
-                                <label for="address">Address</label>
+                                <label htmlFor="address">Address</label>
                                 <input  type="text" name="address" />
 
                                 <div className="btn-container">
@@ -62,7 +155,33 @@ class InsertComponent extends Component {
                             </div>
                         </div>
                         <div className="box-form">
-                            <div className="box-image"></div>
+                            <div className="box-image">
+
+                         
+                            <ReactDropzone
+                            accept="image/*"
+                            // onDrop={this.onDrop}
+                            onDrop={this.onDrop.bind(this)}
+                            className="app" 
+                            >
+                               {thumbs}
+                               {this.state.files.length > 0 ||
+                                 
+                                <div>
+                                    <img src={Attach} className="attach-img"  alt="logo" />
+                                    <p>Drag and Drop or click here for upload photo</p>
+                                </div>
+                               }  
+                              
+                             
+                              
+                             
+                            </ReactDropzone>
+                      
+
+                        
+
+                            </div>
                         </div>
                     </div>
              
@@ -74,4 +193,7 @@ class InsertComponent extends Component {
     }
 }
  
+ 
+
+
 export default InsertComponent;

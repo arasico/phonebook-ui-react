@@ -6,7 +6,7 @@ import IconAdd from '../../assets/icons/add.svg';
 import IconSearch from '../../assets/icons/search.svg';
 
 import Token from '../../token';
-
+import base from '../../baseurl';
 
 
 class ListingComponent extends Component {
@@ -25,19 +25,42 @@ class ListingComponent extends Component {
         alert(Token)
     }
 
+    componentDidMount=() => {
+        console.log("listing is start . . .");
+
+
+        const data={
+            method:'GET',
+            headers:{
+                Accept:'application/json',
+                Authorization: Token
+
+            }
+        }
+
+        const url = base.baseURL + 'contact';
+        console.log(url)
+        
+        fetch(url,data)
+        .then(res => res.JSON())
+        .then(data => console.log(data) )
+        .catch(error => console.log(error));
+
+    }
+
 
   
     render() { 
+
+        // when list is empty show this Dialog box ----->
       const EmptyData = (
-    <div className="emptydata-container">
-        
-        <p>You don't have any contact in your account!</p>
-        <div className="button w50 blue-color">
-            <p>Add your first contact</p>
-        </div>
-      
-    </div>
-    );
+                            <div className="emptydata-container">
+                                <p>You don't have any contact in your account!</p>
+                                <div className="button w50 blue-color" onClick={()=> this.props.history.push('/insert')}>
+                                    <p>Add your first contact</p>
+                                </div>
+                            </div>
+                        );
 
 
         return ( 

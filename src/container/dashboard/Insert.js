@@ -10,12 +10,7 @@ import Attach from '../../assets/icons/attachment.svg';
 
 
 
-const thumbsContainer = {
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    marginTop: 16
-  };
+ 
   
   const thumb = {
     display: 'inline-flex',
@@ -92,18 +87,12 @@ class InsertComponent extends Component {
                 <img
                   src={file.preview}
                   style={img}
+                  alt={"Privew"}
                 />
               </div>
             </div>
           ));
-
-          const alertImg =  (
-              <div>
-                        <img src={Attach}   alt="logo" />
-                       <p>Drag and Drop or click here for upload photo</p>
-
-                </div>
-          )
+ 
 
           
 

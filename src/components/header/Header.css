@@ -19,7 +19,7 @@
     flex-direction: row;
     align-items: center;
     padding-right: 30px;
-    background-color: red;
+    /* background-color: red; */
     
 }
 
@@ -27,12 +27,13 @@
     font-size: 24px;
     font-weight: 700;
     color: #fff;
+    padding: 10px;
 }
 
 .menu-container{
     
     width: 60%;
-    background-color: blue;
+    /* background-color: blue; */
 
 
 }

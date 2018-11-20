@@ -29,7 +29,7 @@
 
 .container-fluid{
     display: flex; 
-    padding: 4rem 0;
+    padding: 2rem 0;
 
 }
 
@@ -137,3 +137,74 @@ input[type=submit] {
  .sub-navlink:hover {
      color: #888;
  }
+
+ .error-box{ 
+    background-color: #EC7063;
+    padding: 16px ; 
+    border-radius: 10px;
+    white-space: pre-line;
+    line-height: 1.5rem;
+    color: #333;
+    -webkit-animation: cssAnimation 1s   forwards; 
+    animation: cssAnimation 1s    forwards;
+    opacity: 0;
+    border: 2px solid #F1948A;
+ 
+    ;
+  
+
+ }
+
+
+ 
+@keyframes cssAnimation {
+    /* 0%   {opacity: 1;}
+    90%  {opacity: 1;}
+    100% {opacity: 0;}  */ 
+    form{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+
+
+}
+@-webkit-keyframes cssAnimation {
+  
+    0%   {opacity: 1;}
+    form{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+ 
+.loader {
+    border: 3px solid #ffffff; /* Light grey */
+    border-top: 3px solid #2c8dce; /* Blue */
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite; 
+    margin: auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+.button{
+    color: white;
+    padding: 20px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 20px;
+}

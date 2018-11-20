@@ -22,7 +22,22 @@ class ListingComponent extends Component {
     _callSearch(){
         alert("this is called from searc ")
     }
+
+
+  
     render() { 
+      const EmptyData = (
+    <div className="emptydata-container">
+        
+        <p>You don't have any contact in your account!</p>
+        <div className="button w50 blue-color">
+            <p>Add your first contact</p>
+        </div>
+      
+    </div>
+    );
+
+
         return ( 
 
          <div>
@@ -45,14 +60,18 @@ class ListingComponent extends Component {
                                     <div>
                                     <img src={IconAdd} className="Add-Icon" alt="Add New"/>    
                                     </div> <p> Add New Contact</p>
+                                    
                                 </div>
                             </NavLink>
                         </div>
-                        
+                       
                     </div>
                     <hr className="hr-silver" />
-                    <div className=""></div> 
+                    <div className="">
+                    {EmptyData}
+                    </div> 
                 </div>
+            
             </div>
 
          </div>

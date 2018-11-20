@@ -33,8 +33,28 @@ class RegisterComponent extends Component {
 
       handleSubmit(event) {
         // alert('A name was submitted: ' + this.state.email + " name: " + this.state.username + " pass: " + this.state.password);
-console.log(base.baseURL)
-        
+     
+        console.log(base.baseURL)
+        const formdata = new FormData();
+        formdata.append('email', this.state.email);
+        formdata.append('username', this.state.username);
+        formdata.append('password', this.state.password);
+
+        const data ={
+            method: 'POST',
+            headers:{
+                "Accept":"application/json",
+            },
+            body: formdata
+        }
+        const url = base.baseURL + 'auth/register';
+       
+        fetch(url,data)
+        .then(response => response.json())
+        .then(datas => console.log(datas))
+        .catch(error => console.log(error));
+     
+
         console.log(this.state.username)
         event.preventDefault();
       }

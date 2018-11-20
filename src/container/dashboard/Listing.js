@@ -5,6 +5,8 @@ import './style.css';
 import IconAdd from '../../assets/icons/add.svg';
 import IconSearch from '../../assets/icons/search.svg';
 
+import Token from '../../token';
+
 
 
 class ListingComponent extends Component {
@@ -20,7 +22,7 @@ class ListingComponent extends Component {
         }
     }
     _callSearch(){
-        alert("this is called from searc ")
+        alert(Token)
     }
 
 

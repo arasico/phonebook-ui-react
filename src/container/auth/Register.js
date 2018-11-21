@@ -12,34 +12,65 @@ class RegisterComponent extends Component {
         this.state = { 
             username:'',
             email:'',
-            password:''
+            password:'',
+            isError:'Your account has been Created successfully.\n You can now login in your account.',
+            isLoading:false,
+            validate:false,
+            emailError:''
          }
          this.handleChange = this.handleChange.bind(this);
          this.handleSubmit = this.handleSubmit.bind(this);
 
     }
 
-
-    handleChange(e) {
+  
+    handleChange = async(e)=> {
         
-        if(e.target.name === 'email')
-            this.setState({email: e.target.value});
-        else if(e.target.name === 'username')
-            this.setState({username: e.target.value});
-        else if(e.target.name === 'password')
-            this.setState({password: e.target.value});
-   
+            const name = e.target.name;
+            const value = e.target.value;
+            this.setState({[name]: value});
+           
+            console.log("data set on key press!")
       }
+
+   
+      shouldComponentUpdate (newProps, newState)  {
+          console.log(this.state.email)
+        if(this.validateEmail(this.state.email) === false && this.state.email.length >10) 
+        {
+            newState.emailError = "Your email address is invalid. Please enter a valid address."
+            newState.validate = false
+        }
+        else
+        {  
+            newState.emailError='';
+            newState.validate = false;
+        
+        }
+        return newState
+      }
+    
+
+
+
+         // this.setState({emailError:'Your email address is invalid. Please enter a valid address.'})
+
+
+
 
       handleSubmit(event) {
         // alert('A name was submitted: ' + this.state.email + " name: " + this.state.username + " pass: " + this.state.password);
      
         console.log(base.baseURL)
+        this._validateChecking();
         const formdata = new FormData();
         formdata.append('email', this.state.email);
         formdata.append('username', this.state.username);
         formdata.append('password', this.state.password);
 
+
+        if(this.state.validate === true)
+        {
         const data ={
             method: 'POST',
             headers:{
@@ -53,11 +84,20 @@ class RegisterComponent extends Component {
         .then(response => response.json())
         .then(datas => console.log(datas))
         .catch(error => console.log(error));
-     
+    }
 
         console.log(this.state.username)
         event.preventDefault();
       }
+
+
+      validateEmail(email) 
+      {
+          const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          return re.test(email);
+      }
+
+    
 
     render() { 
         return ( 
@@ -70,16 +110,23 @@ class RegisterComponent extends Component {
                       <hr />
                   </div>
                   <div className="auth-form">
+
+                  {!this.state.isError ? '' :
+                    <p className="success-box">{this.state.isError}</p>
+                    }
+
+
                       <form  onSubmit={this.handleSubmit} className="form">
                            
                               <label htmlFor="email">Email</label>
-                              <input type="email" value={this.state.email} onChange={this.handleChange}  name="email" />
+                              <input type="email" value={this.state.email} onBlur={this.handleChange} onChange={this.handleChange}  name="email" />
+                             {!this.state.emailError ? '' :  <span className="warning-box">{this.state.emailError}</span>}
 
                               <label htmlFor="username">Username</label>
-                              <input type="text" value={this.state.username} onChange={this.handleChange} name="username"  />
+                              <input type="text" value={this.state.username} onBlur={this.handleChange} onChange={this.handleChange} name="username"  />
 
                               <label htmlFor="password">Password</label>
-                              <input type="password" value={this.state.password} onChange={this.handleChange}  maxLength="20" name="password" />
+                              <input type="password" value={this.state.password} onBlur={this.handleChange} onChange={this.handleChange}  maxLength="20" name="password" />
                           
                           <input type="submit" className="blue-color"  value="Sign Up" />
                       </form>

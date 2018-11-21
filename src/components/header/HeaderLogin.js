@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
 import logo from '../../logo.svg';
 
 import './Header.css';
@@ -7,8 +6,21 @@ import './Header.css';
 class HeaderLogin extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = {Token:''  }
+        this._callLogout = this._callLogout.bind(this)
     }
+
+    _callLogout = async() => {
+       await this.setState({Token:'null'})
+        localStorage.setItem('authorization',this.state.Token)
+        console.log("Log out")
+        console.log(localStorage.getItem('authorization'))
+        window.location.reload(); 
+    }
+ 
+    
+  
+
     render() { 
         return ( 
              <div className="header-container">
@@ -18,9 +30,9 @@ class HeaderLogin extends Component {
                 </div>
                 <div className="menu-container">
                     <ul className="ulLink">
-                            <li className="nav-link-li">
-                                <NavLink to="/login" className="navLink ">  Log Out </NavLink>
-                            </li>
+                            <div>
+                                <button className="btn-logout"  onClick = {this._callLogout}>Logout</button>
+                            </div>
                          
                         </ul>
                 </div>

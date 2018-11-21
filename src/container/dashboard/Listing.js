@@ -12,7 +12,7 @@ import base from '../../baseurl';
 class ListingComponent extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = { dataForm:'' }
     }
 
     enterPressed(event) {
@@ -25,9 +25,15 @@ class ListingComponent extends Component {
         alert(Token)
     }
 
-    componentDidMount=() => {
-        console.log("listing is start . . .");
+    componentWillMount() {
 
+        if(localStorage.getItem('authorization') === 'null')
+        this.props.history.push('/');
+       
+        console.log(localStorage.getItem('authorization'))
+   
+
+        console.log("listing is start . . .");
 
         const data={
             method:'GET',
@@ -38,18 +44,25 @@ class ListingComponent extends Component {
             }
         }
 
-        const url = base.baseURL + 'contact';
-        console.log(url)
-        
-        fetch(url,data)
-        .then(res => res.JSON())
-        .then(data => console.log(data) )
-        .catch(error => console.log(error));
+
+        let cors = 'https://cors-anywhere.herokuapp.com/';  
+        const url = cors + base.baseURL + 'contact';
+        console.log(Token)
+
+        // fetch(url,data)
+        // .then((response) => response.json())
+        // .then((responseJson) => {
+
+        //    console.log(responseJson[0]) 
+        // })
+        // .catch((error) => {
+        //   console.log(error);
+        // })
 
     }
 
-
-  
+ 
+    
     render() { 
 
         // when list is empty show this Dialog box ----->

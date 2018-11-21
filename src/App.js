@@ -9,18 +9,36 @@ import Login from './container/auth/Login';
 import Register from './container/auth/Register';
 import List from './container/dashboard/Listing';
 import Insert from './container/dashboard/Insert';
+import Test from './container/test';
  
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {   } 
+} 
+
+
+  componentWillMount(){
+    console.log(typeof(Token))
+  }
+ 
+
   render() {
+
+
     return (
       <Router>
           <div className="App">
-          {Token ? <HeaderLogin /> :   <HeaderLogout />}
+          {Token === 'null' ? <HeaderLogout /> :  <HeaderLogin />  }
+          {/* <HeaderLogin /> */}
+           
             <Switch>
-                  <Route exact path="/login" component={Login} />
+                  <Route exact init path="/" component={Login} />
                   <Route path="/register" component={Register} /> 
                   <Route path="/list" component={List} /> 
                   <Route path="/insert" component={Insert} /> 
+                  <Route path="/test" component={Test} /> 
             </Switch>
                 
           </div>

@@ -7,7 +7,16 @@ import './Header.css';
 class Header extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = {Token:''  }
+        this._callLogout = this._callLogout.bind(this)
+    }
+
+ 
+
+    _callLogout = async()=> {
+       await this.setState({Token:'login'})
+        localStorage.setItem('authorization',this.state.Token)
+        window.location.reload(); 
     }
     render() { 
         return ( 
@@ -28,6 +37,8 @@ class Header extends Component {
                                 <NavLink to="/register" className="navLink " >  Register </NavLink>
                             </li>
                         </ul>
+
+                          <button   onClick = {this._callLogout}>Login</button>
                 </div>
              </div>
 

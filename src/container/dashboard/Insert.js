@@ -60,14 +60,14 @@ class InsertComponent extends Component {
         });
       }
     
-      componentWillUnmount() {
-        // Make sure to revoke the data uris to avoid memory leaks
-        const {files} = this.state;
-        for (let i = files.length; i >= 0; i--) {
-          const file = files[0];
-          URL.revokeObjectURL(file.preview);
-        }
-      }
+    //   componentWillUnmount() {
+    //     // Make sure to revoke the data uris to avoid memory leaks
+    //     const {files} = this.state;
+    //     for (let i = files.length; i >= 0; i--) {
+    //       const file = files[0];
+    //       URL.revokeObjectURL(file.preview);
+    //     }
+    //   }
 
 
     _callSubmit(){

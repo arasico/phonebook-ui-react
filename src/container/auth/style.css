@@ -150,7 +150,24 @@ input[type=submit] {
     opacity: 0;
     border: 2px solid #F1948A;
  
-    ;
+     
+  
+
+ }
+
+ .success-box{ 
+    background-color: #82E0AA;
+    padding: 16px ; 
+    border-radius: 10px;
+    white-space: pre-line;
+    line-height: 1.5rem;
+    color: #333;
+    -webkit-animation: cssAnimation 1s   forwards; 
+    animation: cssAnimation 1s    forwards;
+    opacity: 0;
+    border: 2px solid #27AE60;
+ 
+     
   
 
  }
@@ -158,9 +175,6 @@ input[type=submit] {
 
  
 @keyframes cssAnimation {
-    /* 0%   {opacity: 1;}
-    90%  {opacity: 1;}
-    100% {opacity: 0;}  */ 
     form{
         opacity: 0;
     }
@@ -171,7 +185,6 @@ input[type=submit] {
 
 }
 @-webkit-keyframes cssAnimation {
-  
     0%   {opacity: 1;}
     form{
         opacity: 0;

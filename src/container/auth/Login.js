@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import './style.css';
 
 import base from '../../baseurl';
+import Token from '../../token';
 
 
 class LoginComponent extends Component {
@@ -23,13 +24,15 @@ class LoginComponent extends Component {
 
 
     handleChange(e){
-        if(e.target.name === 'email')
-            this.setState({email: e.target.value})
-        else if(e.target.name === 'password')
-            this.setState({password: e.target.value})
 
-            console.log("data set on key press!")
+
+        const name = e.target.name;
+        const value = e.target.value;
+        this.setState({[name]: value});
+
+        console.log("data set on key press!")
     }
+ 
 
 
      handleSubmit (e) {
@@ -77,10 +80,9 @@ class LoginComponent extends Component {
                 this.setState({authorization: data.authorization,  isLoading:false})
                 console.log(this.state.authorization)
 
-                localStorage.setItem('authorization', this.state.authorization);
-                // navigati to listing page  --->
-                this.props.history.push('/list');
-
+                localStorage.setItem('authorization', this.state.authorization); 
+                window.location.reload(); 
+                
             }
                 else
                 {
@@ -94,14 +96,15 @@ class LoginComponent extends Component {
             
     }
     componentWillMount(){
-        let auth =  localStorage.getItem('authorization');
-        if(auth === null)
+        let Toke =  localStorage.getItem('authorization');
+        console.log(localStorage.getItem('authorization'))
+        if(Toke === 'null')
         console.log("Not Login!")
-        // else
-        // {
-        //     this.props.history.push('/list')
-        //     console.log (auth)
-        // }
+        else
+        {
+            this.props.history.push('/list')
+            console.log (Toke)
+        }
     }
 
     render() { 

@@ -1,6 +1,6 @@
  
 
- const Token = localStorage.getItem('authorization');
+  const Token =   localStorage.getItem('authorization');
 
  
 export default Token;

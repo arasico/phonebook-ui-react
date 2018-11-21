@@ -341,3 +341,35 @@ button, .search-button input[type="submit"] {
     margin: auto;
     padding: 5px;
 }
+
+.warning-box{
+    background-color: #EC7063;
+    display: table;
+    padding: 10px 30px;
+    font-size: 12px;
+    border-radius: 100px;
+    -webkit-animation: cssAnimation 1s   forwards; 
+    animation: cssAnimation 1s    forwards;
+    opacity: 0;
+}
+
+
+@keyframes cssAnimation {
+    form{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+
+
+}
+@-webkit-keyframes cssAnimation {
+    0%   {opacity: 1;}
+    form{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}

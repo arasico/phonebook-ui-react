@@ -5,25 +5,40 @@ import React , {Component} from 'react';
 class Test extends Component {
     constructor(props) {
         super(props);
-        this.state = { 
-            username:{val:'', err:''},
-
-         }
+        this.state = {
+                users:[
+                    {name:'aras',err:''},
+                    {name:'yas',err:''}
+                ]
+        
+        }
+            
+ 
          this.handleSubmit= this.handleSubmit.bind(this);
     }
 
 
     handleSubmit  (e) {
-         this.setState({username:{val:'wwwww',error:'error is fixed'}})
+        // let statusCopy = Object.assign({}, this.state);
+        // statusCopy.formInputs['name'].value = 'aras';
+       
+        // this.setState(statusCopy);
+       // this.setState({...this.state.formInputs, name: 'aras'});
 
-        
+            const newstatew = this.state.users.map((user) => {
+                const TempUser = user;
+                TempUser.err = '10';
+                return TempUser
+            })
+            this.setState({newstatew})
+
+           
 
         e.preventDefault();
     }
 
     shouldComponentUpdate (newProps, newState)  {
-        console.log(newState.username.val)
-        console.log(newState.username.error)
+        console.log(newState.users)  
         return newState
     }
     render() { 

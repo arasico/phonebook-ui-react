@@ -10,9 +10,9 @@ class RegisterComponent extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            username:'',
-            email:'',
-            password:'',
+            username:{val:'', err:''},
+            email:{val:'', err:''},
+            password:{val:'', err:''},
             isError:'Your account has been Created successfully.\n You can now login in your account.',
             isLoading:false,
             validate:false,
@@ -28,7 +28,7 @@ class RegisterComponent extends Component {
         
             const name = e.target.name;
             const value = e.target.value;
-            this.setState({[name]: value});
+            this.setState({[name]:{val:value}});
            
             console.log("data set on key press!")
       }
@@ -119,14 +119,14 @@ class RegisterComponent extends Component {
                       <form  onSubmit={this.handleSubmit} className="form">
                            
                               <label htmlFor="email">Email</label>
-                              <input type="email" value={this.state.email} onBlur={this.handleChange} onChange={this.handleChange}  name="email" />
+                              <input type="email" value={this.state.email.val} onBlur={this.handleChange} onChange={this.handleChange}  name="email" />
                              {!this.state.emailError ? '' :  <span className="warning-box">{this.state.emailError}</span>}
 
                               <label htmlFor="username">Username</label>
-                              <input type="text" value={this.state.username} onBlur={this.handleChange} onChange={this.handleChange} name="username"  />
+                              <input type="text" value={this.state.username.val} onBlur={this.handleChange} onChange={this.handleChange} name="username"  />
 
                               <label htmlFor="password">Password</label>
-                              <input type="password" value={this.state.password} onBlur={this.handleChange} onChange={this.handleChange}  maxLength="20" name="password" />
+                              <input type="password" value={this.state.password.val} onBlur={this.handleChange} onChange={this.handleChange}  maxLength="20" name="password" />
                           
                           <input type="submit" className="blue-color"  value="Sign Up" />
                       </form>

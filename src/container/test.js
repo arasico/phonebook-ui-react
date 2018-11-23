@@ -19,11 +19,11 @@ class Test extends Component {
 
 
     handleSubmit  (e) {
-        // let statusCopy = Object.assign({}, this.state);
-        // statusCopy.formInputs['name'].value = 'aras';
+        let statusCopy = Object.assign({}, this.state);
+        statusCopy.formInputs['name'].value = 'aras';
        
-        // this.setState(statusCopy);
-       // this.setState({...this.state.formInputs, name: 'aras'});
+        this.setState(statusCopy);
+       this.setState({...this.state.formInputs, name: 'aras'});
 
             const newstatew = this.state.users.map((user) => {
                 const TempUser = user;

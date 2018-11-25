@@ -25,15 +25,12 @@ class LoginComponent extends Component {
 
     handleChange(e){
 
-
         const name = e.target.name;
         const value = e.target.value;
         this.setState({[name]: value});
 
         console.log("data set on key press!")
     }
- 
-
 
      handleSubmit (e) {
 
@@ -108,9 +105,6 @@ class LoginComponent extends Component {
     }
 
     render() { 
-
-   
-
         return ( 
             <div className="container-fluid">
               
@@ -120,10 +114,7 @@ class LoginComponent extends Component {
                         <h3>Please login in your Account.</h3>
                         <hr />
                     </div>
-
-                   
-
-                   
+  
 
                     <div className="auth-form">
                     {!this.state.isError ? '' :

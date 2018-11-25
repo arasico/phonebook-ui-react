@@ -25,7 +25,7 @@ class ListingComponent extends Component {
         alert(Token)
     }
 
-    componentWillMount() {
+    componentWillMount = async()=>  {
 
         if(localStorage.getItem('authorization') === 'null')
         this.props.history.push('/');
@@ -39,25 +39,29 @@ class ListingComponent extends Component {
             method:'GET',
             headers:{
                 Accept:'application/json',
-                Authorization: Token
-
+                Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1YmZhNzY1ZTliZDI5ODAxMzM3ZjA2ZGEiLCJlbWFpbCI6ImFyYXMuYXJtYW5pMjAxNEBnbWFpbC5jb20iLCJ1c2VybmFtZSI6ImFyYXNpY28ifQ.ODs8rUBAP7W9TeQoACuHG1WXGj-3R2L0fzn5TCHgnY8"
             }
         }
 
 
-        let cors = 'https://cors-anywhere.herokuapp.com/';  
-        const url = cors + base.baseURL + 'contact';
-        console.log(Token)
+        // let cors = 'https://cors-anywhere.herokuapp.com/';  
+        // const url = cors + base.baseURL + 'contact';
+        // console.log(Token)
 
         // fetch(url,data)
         // .then((response) => response.json())
         // .then((responseJson) => {
 
-        //    console.log(responseJson[0]) 
+        //    console.log(responseJson) 
         // })
         // .catch((error) => {
         //   console.log(error);
         // })
+
+        // fetch('https://jsonplaceholder.typicode.com/todos/1')
+         await  fetch('/api/v1/contact' ,data)
+        .then(response => response.json())
+        .then(json => console.log(json))
 
     }
 

@@ -4,20 +4,22 @@ import './style.css';
 
 import base from '../../baseurl';
 
- 
+ const initialState = {
+    username:'',
+    email:'',
+    password:'',
+    usernameError:'',
+    emailError:'',
+    passwordError:'',
+    isError:'Your account has been Created successfully.\n You can now login in your account.',
+    isLoading:false,
+    validate:false,
+ }
 
 class RegisterComponent extends Component {
     constructor(props) {
         super(props);
-        this.state = { 
-            username:{val:'', err:''},
-            email:{val:'', err:''},
-            password:{val:'', err:''},
-            isError:'Your account has been Created successfully.\n You can now login in your account.',
-            isLoading:false,
-            validate:false,
-            emailError:''
-         }
+        this.state =  initialState;
          this.handleChange = this.handleChange.bind(this);
          this.handleSubmit = this.handleSubmit.bind(this);
 
@@ -28,27 +30,79 @@ class RegisterComponent extends Component {
         
             const name = e.target.name;
             const value = e.target.value;
-            this.setState({[name]:{val:value}});
+            this.setState({[name]:value});
            
             console.log("data set on key press!")
       }
 
-   
-      shouldComponentUpdate (newProps, newState)  {
-          console.log(this.state.email)
-        if(this.validateEmail(this.state.email) === false && this.state.email.length >10) 
+      handleonFocus = async(e) =>{
+        if(this.validateEmail(this.state.email) === false && this.state.email.length >5) 
         {
-            newState.emailError = "Your email address is invalid. Please enter a valid address."
-            newState.validate = false
+            this.setState({emailError : "Your email address is invalid. Please enter a valid address."})
+            this.setState({validate : false})
         }
         else
         {  
-            newState.emailError='';
-            newState.validate = false;
+            this.setState({emailError : ''})
+            this.setState({validate : true})
         
         }
-        return newState
+
+        if(this.state.username.length < 5 && this.state.username !== '')
+        {
+            this.setState({usernameError : "Usernames must be at least 5 characters long!"})
+            this.setState({validate : false})
+        }
+        else
+        {  
+            this.setState({usernameError : ''})
+            this.setState({validate : true})
+        
+        }
+
+        if(this.state.password.length < 5 && this.state.password !== '')
+        {
+            this.setState({passwordError : "Password must be at least 5 characters long!"})
+            this.setState({validate : false})
+        }
+        else
+        {  
+            this.setState({passwordError : ''})
+            this.setState({validate : true})
+        
+        }
+
+        return true;
       }
+
+   
+    //   shouldComponentUpdate (newProps, newState)  {
+    //       console.log(this.state.email)
+    //     if(this.validateEmail(this.state.email) === false && this.state.email.length >10) 
+    //     {
+    //         newState.emailError = "Your email address is invalid. Please enter a valid address."
+    //         newState.validate = false
+    //     }
+    //     else
+    //     {  
+    //         newState.emailError='';
+    //         newState.validate = false;
+        
+    //     }
+
+    //     if(this.state.username.length < 5 && this.state.username !== '')
+    //     {
+    //         newState.usernameError = "Usernames must be at least 5 characters long!"
+    //         newState.validate = false
+    //     }
+    //     else
+    //     {  
+    //         newState.usernameError='';
+    //         newState.validate = false;
+        
+    //     }
+    //     return newState
+    //   }
     
 
 
@@ -56,13 +110,27 @@ class RegisterComponent extends Component {
          // this.setState({emailError:'Your email address is invalid. Please enter a valid address.'})
 
 
+      validate = () =>{
+           let usernameError=''
+           let emailError=''
+           let passwordError='';
+
+           if(!this.state.email.includes('@')){
+                emailError = 'Invalid Email!'
+           }
 
 
+           if(emailError){
+               this.setState({emailError});
+               return false;
+           }
+
+           return true
+    }
       handleSubmit(event) {
         // alert('A name was submitted: ' + this.state.email + " name: " + this.state.username + " pass: " + this.state.password);
-     
-        console.log(base.baseURL)
-        this._validateChecking();
+        event.preventDefault();
+        console.log(base.baseURL) 
         const formdata = new FormData();
         formdata.append('email', this.state.email);
         formdata.append('username', this.state.username);
@@ -85,9 +153,13 @@ class RegisterComponent extends Component {
         .then(datas => console.log(datas))
         .catch(error => console.log(error));
     }
-
-        console.log(this.state.username)
-        event.preventDefault();
+        const isValid = this.validate();
+        if(isValid){
+        console.log(this.state)
+        // clear forms
+        this.setState(initialState)
+        }
+       
       }
 
 
@@ -119,15 +191,20 @@ class RegisterComponent extends Component {
                       <form  onSubmit={this.handleSubmit} className="form">
                            
                               <label htmlFor="email">Email</label>
-                              <input type="email" value={this.state.email.val} onBlur={this.handleChange} onChange={this.handleChange}  name="email" />
-                             {!this.state.emailError ? '' :  <span className="warning-box">{this.state.emailError}</span>}
+                              <input type="email" value={this.state.email.val} onBlur={this.handleonFocus} onChange={this.handleChange}  name="email" />
+                              {/* Error handeling  */}
+                              {!this.state.emailError ? '' :  <span className="warning-box">{this.state.emailError}</span>}
 
                               <label htmlFor="username">Username</label>
-                              <input type="text" value={this.state.username.val} onBlur={this.handleChange} onChange={this.handleChange} name="username"  />
+                              <input type="text" value={this.state.username.val} onBlur={this.handleonFocus} onChange={this.handleChange} name="username"  />
+                              {/* Error handeling  */}
+                              {!this.state.usernameError ? '' :  <span className="warning-box">{this.state.usernameError}</span>}
 
                               <label htmlFor="password">Password</label>
                               <input type="password" value={this.state.password.val} onBlur={this.handleChange} onChange={this.handleChange}  maxLength="20" name="password" />
-                          
+                              {/* Error handeling  */}
+                              {!this.state.passwordError ? '' :  <span className="warning-box">{this.state.passwordError}</span>}
+
                           <input type="submit" className="blue-color"  value="Sign Up" />
                       </form>
                   </div>
